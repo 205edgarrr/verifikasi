@@ -8,169 +8,95 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #f8fafc;
-        }
-        /* Cetak grafis warna asli saat disimpan ke PDF */
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; display: flex; justify-content: center; }
+        .container-view { width: 100%; max-width: 500px; background-color: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        
         @media print {
             .no-print { display: none !important; }
-            body { background-color: #ffffff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .shadow-sm, .shadow-md, .shadow-xl { box-shadow: none !important; }
-            .border { border-color: #f1f5f9 !important; }
+            /* Menyembunyikan branding saat dicetak */
+            .assist-branding { display: none !important; }
+            body { background-color: #ffffff; }
+            .container-view { max-width: 100%; box-shadow: none; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
     </style>
 </head>
-<body class="text-[#334155] min-h-screen flex flex-col antialiased">
+<body class="text-[#334155]">
 
-    <div class="no-print bg-[#fffbeb] border-b border-[#fef3c7] px-6 py-3 text-sm text-[#92400e] shadow-sm">
-        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-pen-to-square text-[#d97706] text-base"></i>
-                <span class="font-medium"><b class="font-bold"></b> Silakan Klik Untuk Cetak / Simpan PDF.</span>
-            </div>
-            <button onclick="window.print()" class="bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-semibold px-5 py-2 rounded-lg text-xs transition shadow-sm flex items-center gap-2">
-                <i class="fa-solid fa-print text-sm"></i> Cetak / Simpan PDF
+    <div class="container-view flex flex-col">
+        <div class="no-print bg-[#fffbeb] border-b border-[#fef3c7] px-4 py-3 text-xs text-[#92400e]">
+            <button onclick="window.print()" class="w-full bg-[#1d4ed8] text-white font-semibold py-2 rounded-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
             </button>
         </div>
-    </div>
 
-    <div class="bg-white border-b border-[#f1f5f9] w-full">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-5 flex flex-row items-center justify-between gap-4">
-            <div class="flex items-center">
-                <div class="w-20 h-20 flex-shrink-0 flex items-center justify-center">
-                    <img src="BONA MITRA KELUARGA LOGO.png" alt="BONA MITRA KELUARGA LOGO" class="max-w-full h-16 object-contain">
+        <header class="bg-white border-b border-[#e2e8f0] p-6 shadow-sm">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="BONA MITRA KELUARGA LOGO.png" alt="Logo" class="h-10 object-contain">
+                    <div class="ml-3">
+                        <h1 class="text-sm font-bold text-[#1e293b]">Klinik Bona Mitra Keluarga</h1>
+                        <div class="flex items-center gap-1.5 assist-branding">
+                            <p class="text-[10px] text-[#94a3b8] mt-0.5">Powered by</p>
+                            <img src="assist logo.png" alt="assist logo" class="h-6 object-contain">
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="flex flex-col items-start ml-4">
-                    <h1 contenteditable="true" class="text-[20px] font-bold text-[#1e293b] tracking-tight focus:bg-slate-50 focus:outline-none rounded px-1">Klinik Bona Mitra Keluarga</h1>
-                    <p class="text-xs text-[#94a3b8] mt-1 font-medium flex items-center">
-                        Powered by&nbsp; 
-                        <span class="text-[#1d4ed8] font-bold tracking-tight inline-flex items-center">
-                            <img src="assist logo.png" alt="assist logo" class="h-8">
-                        </span>
-                    </p>
+                <div class="inline-flex items-center gap-1.5 bg-[#eff6ff] text-[#2563eb] text-[10px] font-bold px-3 py-1 rounded-full border border-[#dbeafe]">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Terverifikasi</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="p-6 space-y-4">
+            <div class="bg-white border border-[#e2e8f0] rounded-xl p-4 flex items-start space-x-3 shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-[#176bfb] flex items-center justify-center flex-shrink-0">
+                    <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+                        <svg class="w-4 h-4 text-[#176bfb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-xs font-bold text-[#1e293b]">Surat Valid dan Terverifikasi</h2>
+                    <p class="text-[10px] text-[#94a3b8]">Dokumen ini telah terverifikasi pada 03-06-2026 (16:23) dan terdaftar dalam sistem kami.</p>
                 </div>
             </div>
 
-            <span class="inline-flex items-center gap-1.5 bg-[#eff6ff] text-[#2563eb] text-xs font-semibold px-4 py-2 rounded-full border border-[#bfdbfe]">
-                <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="12" fill="#2563eb"/>
-                    <path d="M7.5 12.5L10.5 15.5L16.5 9.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Terverifikasi
-            </span>
-        </div>
+            <div class="bg-white border border-[#e2e8f0] rounded-xl overflow-hidden shadow-sm">
+                <div class="bg-[#eff6ff] px-4 py-2 border-b border-[#e2e8f0] text-[11px] font-bold text-[#2563eb] flex items-center gap-2">
+                    <i class="fa-regular fa-user"></i> Data Pasien
+                </div>
+                <div class="p-4 space-y-3 text-[11px]">
+                    <div><span class="text-[#94a3b8] block uppercase">Nama Lengkap</span><span class="font-semibold text-[#334155]">MOCHAMAD EDGAR MAHARDIKA</span></div>
+                    <div><span class="text-[#94a3b8] block uppercase">Tanggal Lahir</span><span class="font-semibold text-[#334155]">02-01-2005</span></div>
+                    <div><span class="text-[#94a3b8] block uppercase">NIK</span><span class="font-bold text-[#0f172a] font-mono">3209200201050001</span></div>
+                    <div><span class="text-[#94a3b8] block uppercase">Alamat</span><span class="font-medium text-[#475569]">SEKELIMUS IV NO 16, KAB. BANDUNG, JAWA BARAT</span></div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-[#e2e8f0] rounded-xl overflow-hidden shadow-sm">
+                <div class="bg-[#eff6ff] px-4 py-2 border-b border-[#e2e8f0] text-[11px] font-bold text-[#2563eb] flex items-center gap-2">
+                    <i class="fa-regular fa-file-lines"></i> Informasi Tenaga Medis
+                </div>
+                <div class="p-4 space-y-3 text-[11px]">
+                    <div><span class="text-[#94a3b8] block uppercase">Nama Tenaga Medis</span><span class="font-semibold text-[#334155]">dr. Titin Mulyawati</span></div>
+                    <div><span class="text-[#94a3b8] block uppercase">Nomor SIP</span><span class="font-bold text-[#0f172a] font-mono text-[10px]">503/0543-SIP-DR/DPMPTSP/VII/2022</span></div>
+                    <div><span class="text-[#94a3b8] block uppercase">Fasilitas Kesehatan</span><span class="font-semibold text-[#334155]">Klinik Bona Mitra Keluarga</span></div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-[#e2e8f0] rounded-xl overflow-hidden shadow-sm p-4 space-y-3 text-[11px]">
+                <div class="font-bold text-[#1e293b] border-b pb-2">Detail Surat</div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div><span class="text-[#94a3b8] block uppercase">Jenis Surat</span><span class="text-[#334155]">Surat Keterangan Sakit</span></div>
+                    <div><span class="text-[#94a3b8] block uppercase">Berlaku</span><span class="text-[#334155]">03-06-2026 s/d 05-06-2026</span></div>
+                </div>
+                <div class="bg-slate-50 p-2 rounded-lg"><span class="text-[#94a3b8] block uppercase mb-1">Keterangan</span><p class="text-[#334155]">Pasien memerlukan istirahat selama 3 hari, karena: K21.9 Gastro-esophageal reflux disease without esophagitis.</p></div>
+            </div>
+        </main>
     </div>
-
-    <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 space-y-6">
-
-        <div class="bg-[#f8fafc] border border-[#e2e8f0] rounded-2xl p-6 flex items-start space-x-4">
-            <div class="w-12 h-12 flex-shrink-0 rounded-full bg-[#176bfb] flex items-center justify-center shadow-sm">
-                <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center">
-                    <svg class="w-3.5 h-3.5 mt-[0.5px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.5 12.5L10 18L20 6" stroke="#176bfb" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="space-y-1 text-left pt-0.5">
-                <h2 class="text-lg font-bold text-[#1e293b]">Surat Valid dan Terverifikasi</h2>
-                <p class="text-[13px] text-[#94a3b8] font-medium leading-relaxed">
-                    Dokumen ini telah terverifikasi pada 
-                    <span contenteditable="true" class="focus:bg-slate-100 focus:outline-none px-0.5 rounded font-semibold text-[#64748b]">03-06-2026 (16:23)</span> 
-                    dan terdaftar dalam sistem kami.
-                </p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white border border-[#e2e8f0] rounded-2xl overflow-hidden shadow-sm">
-                <div class="bg-[#eff6ff] px-5 py-3.5 border-b border-[#e2e8f0] flex items-center space-x-2 text-[#2563eb]">
-                    <i class="fa-regular fa-user text-base"></i>
-                    <h3 class="font-bold text-sm text-[#1e293b]">Data Pasien</h3>
-                </div>
-                <div class="p-6 grid grid-cols-2 gap-y-5 gap-x-4 text-xs">
-                    <div>
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Nama Lengkap</span>
-                        <span contenteditable="true" class="text-[#334155] font-semibold focus:bg-slate-50 focus:outline-none px-0.5 rounded block text-[13px] tracking-wide">MOCHAMAD EDGAR MAHARDIKA</span>
-                    </div>
-                    <div>
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Tanggal Lahir</span>
-                        <span contenteditable="true" class="text-[#334155] font-semibold focus:bg-slate-50 focus:outline-none px-0.5 rounded block text-[13px]">02-01-2005</span>
-                    </div>
-                    <div class="col-span-2">
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">NIK</span>
-                        <span contenteditable="true" class="text-[#0f172a] font-bold focus:bg-slate-50 focus:outline-none px-0.5 rounded block font-mono text-[13px]">3209200201050001</span>
-                    </div>
-                    <div class="col-span-2">
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Alamat</span>
-                        <span contenteditable="true" class="text-[#475569] font-medium focus:bg-slate-50 focus:outline-none px-0.5 rounded block leading-relaxed text-[12px]">SEKELIMUS IV NO 16, KAB. BANDUNG, JAWA BARAT</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white border border-[#e2e8f0] rounded-2xl overflow-hidden shadow-sm">
-                <div class="bg-[#eff6ff] px-5 py-3.5 border-b border-[#e2e8f0] flex items-center space-x-2 text-[#2563eb]">
-                    <i class="fa-regular fa-file-lines text-base"></i>
-                    <h3 class="font-bold text-sm text-[#1e293b]">Informasi Tenaga Medis</h3>
-                </div>
-                <div class="p-6 grid grid-cols-2 gap-y-5 gap-x-4 text-xs">
-                    <div>
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Nama Tenaga Medis</span>
-                        <span contenteditable="true" class="text-[#334155] font-semibold focus:bg-slate-50 focus:outline-none px-0.5 rounded block text-[13px]">dr. Titin Mulyawati</span>
-                    </div>
-                    <div>
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Nomor SIP</span>
-                        <span contenteditable="true" class="text-[#0f172a] font-bold focus:bg-slate-50 focus:outline-none px-0.5 rounded block font-mono text-[12px] leading-tight">503/0543-SIP-DR/DPMPTSP/VII/2022</span>
-                    </div>
-                    <div class="col-span-2 pt-1">
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Fasilitas Kesehatan</span>
-                        <span contenteditable="true" class="text-[#334155] font-medium focus:bg-slate-50 focus:outline-none px-0.5 rounded block text-[13px]">Klinik Bona Mitra Keluarga</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border border-[#e2e8f0] rounded-2xl overflow-hidden shadow-sm">
-            <div class="bg-[#eff6ff] px-5 py-3.5 border-b border-[#e2e8f0] flex items-center space-x-2 text-[#2563eb]">
-                <i class="fa-regular fa-copy text-base"></i>
-                <h3 class="font-bold text-sm text-[#1e293b]">Detail Surat</h3>
-            </div>
-            <div class="p-6 text-xs space-y-5">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-b border-[#f1f5f9] pb-5">
-                    <div>
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Jenis Surat</span>
-                        <span contenteditable="true" class="text-[#334155] font-medium focus:bg-slate-50 focus:outline-none px-0.5 rounded block text-[13px]">Surat Keterangan Sakit</span>
-                    </div>
-                    <div>
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Nomor Surat</span>
-                        <span contenteditable="true" class="text-[#334155] font-medium focus:bg-slate-50 focus:outline-none px-0.5 rounded block text-[13px]">-</span>
-                    </div>
-                    <div>
-                        <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-1" style="font-size: 10px;">Berlaku</span>
-                        <span contenteditable="true" class="text-[#334155] font-medium focus:bg-slate-50 focus:outline-none px-0.5 rounded block text-[13px]">03-06-2026 s/d 05-06-2026</span>
-                    </div>
-                </div>
-                <div class="bg-white border border-[#e2e8f0] rounded-xl p-4">
-                    <span class="text-[#94a3b8] block font-semibold uppercase tracking-wider mb-2" style="font-size: 10px;">Keterangan</span>
-                    <p contenteditable="true" class="text-[#334155] text-[13px] leading-relaxed focus:bg-slate-50 focus:outline-none rounded px-0.5">
-                        Pasien memerlukan istirahat selama 3 hari, karena: <span class="text-[#0f172a]">K21.9 Gastro-esophageal reflux disease without esophagitis.</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border border-[#e2e8f0] rounded-xl py-4 px-6 text-center shadow-sm">
-            <p contenteditable="true" class="text-xs text-[#94a3b8] font-medium leading-relaxed focus:bg-slate-50 focus:outline-none rounded px-1">
-                Dokumen ini telah diverifikasi secara digital. Untuk pertanyaan lebih lanjut, silakan hubungi fasilitas kesehatan yang tertera.
-            </p>
-        </div>
-
-    </main>
-
-    <footer class="bg-white border-t border-[#e2e8f0] py-4 text-center text-[11px] text-[#94a3b8] font-medium no-print">
-        <p>&copy; 2026 Klinik Bona Mitra Keluarga & Assist.id. All Rights Reserved.</p>
-    </footer>
-
 </body>
 </html>
